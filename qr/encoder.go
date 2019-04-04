@@ -22,6 +22,8 @@ const (
 	AlphaNumeric
 	// Unicode encoding encodes the string as utf-8
 	Unicode
+	// RawBytes encoding encodes raw byte array
+	RawBytes
 	// only for testing purpose
 	unknownEncoding
 )
@@ -36,6 +38,8 @@ func (e Encoding) getEncoder() encodeFn {
 		return encodeAlphaNumeric
 	case Unicode:
 		return encodeUnicode
+	case RawBytes:
+		return encodeRawBytes
 	}
 	return nil
 }
